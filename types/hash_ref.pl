@@ -50,3 +50,16 @@ print "h3: " . Dumper(%h3) . "\n";
 # $VAR2 = 'mybar3';
 
 
+my %h4 = ('foo' => [1,2,3,4,5] );
+my $r4 = $h4{'foo'};
+my $len4 = @{$r4};
+print "r4: " . Dumper($r4) . ', length:' . $len4 . ', @#{$r4}:' . $#{$r4} .  "\n"; # '@#{$r4}' is the last index of array element
+# output:
+# r4: $VAR1 = [
+#           1,
+#           2,
+#           3,
+#           4,
+#           5
+#         ];
+# , length:5, @#{$r4}:4

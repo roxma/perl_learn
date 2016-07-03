@@ -21,10 +21,8 @@ print "h2: " . Dumper(%h2) . "\n";
 # $VAR2 = 'bar';
 
 
-
 # reference
 my $r1 = \%h1;
-
 # this statement also modifies h1
 ${$r1}{'foo'} = 'mybar2';
 
@@ -39,5 +37,16 @@ print "h1: " . Dumper(%h1) . "\n";
 # $VAR2 = 'mybar2';
 
 
+# copy hash by dereferencing
+my %h3 = %{$r1};
+$h3{'foo'} = 'mybar3';
+print "h1: " . Dumper(%h1) . "\n";
+print "h3: " . Dumper(%h3) . "\n";
+# output:
+# h1: $VAR1 = 'foo';
+# $VAR2 = 'mybar2';
+# 
+# h3: $VAR1 = 'foo';
+# $VAR2 = 'mybar3';
 
 

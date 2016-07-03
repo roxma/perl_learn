@@ -63,3 +63,8 @@ print "r4: " . Dumper($r4) . ', length:' . $len4 . ', @#{$r4}:' . $#{$r4} .  "\n
 #           5
 #         ];
 # , length:5, @#{$r4}:4
+
+# my %h5 = ('foo' => ( 'bar' => 'hello world') ); # ill formed, hash value had to be of scalar type.
+my %h5 = ('foo' => { 'bar' => 'hello world'} );
+print Dumper(%h5);
+
